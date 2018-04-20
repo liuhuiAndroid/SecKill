@@ -24,6 +24,10 @@ public class GoodsController {
     @Autowired
     GoodsService goodsService;
 
+    /**
+     * QPS:123.9
+     * 1000 * 10
+     */
     @RequestMapping("/to_list")
     public String list(Model model, SeckillUser user) {
         model.addAttribute("user", user);
@@ -45,19 +49,19 @@ public class GoodsController {
         long endAt = goods.getEndDate().getTime();
         long now = System.currentTimeMillis();
 
-        int miaoshaStatus = 0;
+        int seckillStatus = 0;
         int remainSeconds = 0;
         if(now < startAt ) {//秒杀还没开始，倒计时
-            miaoshaStatus = 0;
+            seckillStatus = 0;
             remainSeconds = (int)((startAt - now )/1000);
         }else  if(now > endAt){//秒杀已经结束
-            miaoshaStatus = 2;
+            seckillStatus = 2;
             remainSeconds = -1;
         }else {//秒杀进行中
-            miaoshaStatus = 1;
+            seckillStatus = 1;
             remainSeconds = 0;
         }
-        model.addAttribute("miaoshaStatus", miaoshaStatus);
+        model.addAttribute("seckillStatus", seckillStatus);
         model.addAttribute("remainSeconds", remainSeconds);
         return "goods_detail";
     }
