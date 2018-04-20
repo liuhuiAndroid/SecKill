@@ -1,10 +1,12 @@
 package com.lh.seckill.controller;
 
 import com.lh.seckill.result.Result;
+import com.lh.seckill.service.SeckillUserService;
 import com.lh.seckill.vo.LoginVo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,9 @@ import javax.validation.Valid;
 @RequestMapping("/login")
 public class LoginController {
 
+    @Autowired
+    SeckillUserService userService;
+
     private static Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @RequestMapping("/to_login")
@@ -31,7 +36,8 @@ public class LoginController {
     @RequestMapping("/do_login")
     @ResponseBody
     public Result<Boolean> doLogin(HttpServletResponse response, @Valid LoginVo loginVo) {
-        log.info(loginVo.toString());
+        log.info(LoginController.this.getClass().getSimpleName() + loginVo.toString());
+        userService.login(response, loginVo);
         return Result.success(true);
     }
 

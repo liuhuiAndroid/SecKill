@@ -1,7 +1,10 @@
 package com.lh.seckill.controller;
 
+import com.lh.seckill.domain.SeckillUser;
+
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,7 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GoodsController {
 
     @RequestMapping("/to_list")
-    public String list() {
+    public String list(Model model, SeckillUser user) {
+        model.addAttribute("user", user);
         return "goods_list";
     }
 
