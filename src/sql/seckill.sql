@@ -50,5 +50,3 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '武侠');
-INSERT INTO `user` VALUES ('2', '你呢');
-INSERT INTO `user` VALUES ('3', '你呢');
