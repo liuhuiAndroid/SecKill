@@ -2,11 +2,11 @@ package com.lh.seckill.config;
 
 import com.lh.seckill.domain.SeckillUser;
 import com.lh.seckill.service.SeckillUserService;
+import com.sun.istack.internal.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
