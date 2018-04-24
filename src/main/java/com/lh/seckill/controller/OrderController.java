@@ -33,8 +33,7 @@ public class OrderController {
 
     @RequestMapping("/detail")
     @ResponseBody
-    public Result<OrderDetailVo> info(Model model, SeckillUser user,
-                                      @RequestParam("orderId") long orderId) {
+    public Result<OrderDetailVo> info(Model model, SeckillUser user, @RequestParam("orderId") long orderId) {
         if(user == null) {
             return Result.error(CodeMsg.SESSION_ERROR);
         }

@@ -1,6 +1,7 @@
 package com.lh.seckill.controller;
 
 import com.lh.seckill.domain.User;
+import com.lh.seckill.rabbitmq.MQSender;
 import com.lh.seckill.redis.RedisService;
 import com.lh.seckill.redis.key.UserKey;
 import com.lh.seckill.result.CodeMsg;
@@ -27,6 +28,9 @@ public class SampleController {
 
     @Autowired
     RedisService redisService;
+
+    @Autowired
+    MQSender sender;
 
     /**
      * Hello World
@@ -60,7 +64,7 @@ public class SampleController {
      */
     @RequestMapping("/thymeleaf")
     public String thymeleaf(Model model) {
-        model.addAttribute("name","HiphopMan");
+        model.addAttribute("name", "HiphopMan");
         return "hello";
     }
 
@@ -90,7 +94,7 @@ public class SampleController {
     @RequestMapping("/redis/get")
     @ResponseBody
     public Result<User> redisGet() {
-        User user  = redisService.get(UserKey.getById, ""+1, User.class);
+        User user = redisService.get(UserKey.getById, "" + 1, User.class);
         return Result.success(user);
     }
 
@@ -100,11 +104,51 @@ public class SampleController {
     @RequestMapping("/redis/set")
     @ResponseBody
     public Result<Boolean> redisSet() {
-        User user  = new User();
+        User user = new User();
         user.setId(1);
         user.setName("1111");
-        redisService.set(UserKey.getById, ""+1, user);//UserKey:id1
+        redisService.set(UserKey.getById, "" + 1, user);//UserKey:id1
         return Result.success(true);
+    }
+
+    /**
+     * Headers模式
+     */
+    @RequestMapping("/mq/header")
+    @ResponseBody
+    public Result<String> header() {
+        sender.sendHeader("hello,java");
+        return Result.success("Hello，world");
+    }
+
+    /**
+     * Fanout模式
+     */
+    @RequestMapping("/mq/fanout")
+    @ResponseBody
+    public Result<String> fanout() {
+        sender.sendFanout("hello,java");
+        return Result.success("Hello，world");
+    }
+
+    /**
+     * Topic模式
+     */
+    @RequestMapping("/mq/topic")
+    @ResponseBody
+    public Result<String> topic() {
+        sender.sendTopic("hello,java");
+        return Result.success("Hello，world");
+    }
+
+    /**
+     * Direct模式
+     */
+    @RequestMapping("/mq")
+    @ResponseBody
+    public Result<String> mq() {
+        sender.send("hello,java");
+        return Result.success("Hello，world");
     }
 
 }
