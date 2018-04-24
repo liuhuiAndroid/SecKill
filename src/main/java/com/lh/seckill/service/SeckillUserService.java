@@ -96,7 +96,7 @@ public class SeckillUserService {
         response.addCookie(cookie);
     }
 
-    public Object getByToken(HttpServletResponse response, String token) {
+    public SeckillUser getByToken(HttpServletResponse response, String token) {
         if(StringUtils.isEmpty(token)) {
             return null;
         }
