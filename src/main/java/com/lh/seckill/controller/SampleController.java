@@ -10,15 +10,18 @@ import com.lh.seckill.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Created by lh on 2018/4/19.
  */
-@Controller
+@RestController
 @EnableAutoConfiguration
 @RequestMapping("/sample")
 public class SampleController {
@@ -35,7 +38,8 @@ public class SampleController {
     /**
      * Hello World
      */
-    @RequestMapping("/hello")
+    @ApiOperation(value = "测试hello world", notes = "第一个测试Api")
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody
     String home() {
         return "Hello World!";

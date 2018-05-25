@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://E:/BaiduNetdiskDownload/vue/s2gciy/miaosha_7/miaosha.iml" filepath="E:/BaiduNetdiskDownload/vue/s2gciy/miaosha_7/miaosha.iml" />
+      <module fileurl="file://E:/new_project/mybatis-3.4.0/mybatis.iml" filepath="E:/new_project/mybatis-3.4.0/mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/seckill.iml" filepath="$PROJECT_DIR$/seckill.iml" />
     </modules>
   </component>

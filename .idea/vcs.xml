@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="E:/new_project/mybatis-3.4.0" vcs="Git" />
   </component>
 </project>
