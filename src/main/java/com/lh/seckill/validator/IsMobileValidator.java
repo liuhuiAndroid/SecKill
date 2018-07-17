@@ -3,7 +3,6 @@ package com.lh.seckill.validator;
 import com.lh.seckill.util.ValidatorUtil;
 
 import org.apache.commons.lang3.StringUtils;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 

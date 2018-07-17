@@ -16,5 +16,5 @@ public class UserContext {
     public static SeckillUser getUser() {
         return userHolder.get();
     }
-    
+
 }

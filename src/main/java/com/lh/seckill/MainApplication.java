@@ -10,9 +10,11 @@ public class MainApplication {//extends SpringBootServletInitializer
         SpringApplication.run(MainApplication.class, args);
     }
 
-   /* @Override
+   /*
+    @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(MainApplication.class);
-    }*/
+    }
+    */
 
 }

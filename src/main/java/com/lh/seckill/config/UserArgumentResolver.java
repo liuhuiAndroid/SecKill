@@ -3,8 +3,8 @@ package com.lh.seckill.config;
 import com.lh.seckill.access.UserContext;
 import com.lh.seckill.domain.SeckillUser;
 import com.lh.seckill.service.SeckillUserService;
-import com.sun.istack.internal.Nullable;
 
+import javax.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Service;
